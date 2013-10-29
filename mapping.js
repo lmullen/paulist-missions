@@ -1,7 +1,9 @@
-var width = window.innerWidth,
-    height = 750;
+var width = window.innerWidth - 100;
+    height = window.innerHeight - 100;
 
-var projection = d3.geo.albersUsa();
+var projection = d3.geo.albersUsa()
+  .scale(1200)
+  .translate([width / 2, height / 2]);
 
 var path = d3.geo.path().projection(projection);
 
@@ -20,6 +22,11 @@ d3.json("state_1870.json", function(error, state_1870) {
     .enter().append("path")
     .attr("class", function(d) { return "state " + d.id; })
     .attr("d", path);
+
+  svg.append("path")
+    .datum(topojson.mesh(state_1870, state_1870.objects.states))
+    .attr("d", path)
+    .attr("class", "border");
 
 });
 
