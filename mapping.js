@@ -14,9 +14,6 @@ var svg = d3.select("body").append("svg")
 
 d3.json("state_1870.json", function(error, state_1870) {
 
-  // var subunits = topojson.feature(state_1870, state_1870.objects.states);
-  // svg.append("path").datum(subunits).attr("d", path);
-
   svg.selectAll(".states")
     .data(topojson.feature(state_1870, state_1870.objects.states).features)
     .enter().append("path")
@@ -27,6 +24,16 @@ d3.json("state_1870.json", function(error, state_1870) {
     .datum(topojson.mesh(state_1870, state_1870.objects.states))
     .attr("d", path)
     .attr("class", "border");
+
+  d3.csv("missions.csv", function(error, missions) {
+    svg.selectAll("circles.points")
+    .data(missions)
+    .enter()
+    .append("circle")
+    .attr("r", function(d) {return 2 * Math.sqrt(d.converts)})
+    .attr("class","mission")
+    .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
+  });
 
 });
 
