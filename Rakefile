@@ -5,6 +5,8 @@ task :shapefiles do
   sh "topojson -o state_1870.json  \
   --id-property GISJOIN \
   -p name=STATENAM,gis=GISJOIN \
+  -q 5e3 \
+  --simplify-proportion 0.30 \
   -- states=geo.json"
   sh "rm geo.json"
 end
