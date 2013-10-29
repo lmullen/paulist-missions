@@ -1,4 +1,3 @@
-paulist-missions
-================
+# Paulist Missions
 
-Mapping nineteenth-century Paulist missions in D3
+Mapping nineteenth-century Paulist missions in D3.js.
