@@ -1,4 +1,4 @@
-"","X","volume","page","mission.number","type","church","city","state","start.date","end.date","communion.general","converts","under.instruction","diocese","communion.adults","communion.children","communion.men","communion.women","order","notes","converts.adult","converts.children","location","geo.lon","geo.lat"
+"","X","volume","page","mission.number","type","church","city","state","start.date","end.date","communion.general","converts","under.instruction","diocese","communion.adults","communion.children","communion.men","communion.women","order","notes","converts.adult","converts.children","location","lon","lat"
 "1",420,3,33,NA,"mission","","Abington","MA","5/13/1883","5/20/1883",952,"",NA,"",NA,NA,NA,NA,"","",NA,NA,"Abington MA",-70.9453218,42.1048228
 "2",485,3,149,NA,"retreat","St. Bridget's Church","Abington","MA","6/3/1885","6/8/1885",230,"",NA,"",NA,NA,NA,NA,"","",NA,NA,"Abington MA",-70.9453218,42.1048228
 "3",12,1,28,12,"mission","St. Joseph's Church","Albany","NY","2/29/1852","3/14/1852",4000,"",NA,"Albany",NA,NA,NA,NA,"Redemptorist","",NA,NA,"Albany NY",-73.7562317,42.6525793
