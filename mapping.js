@@ -30,7 +30,8 @@ d3.json("state_1870.json", function(error, state_1870) {
     .data(missions)
     .enter()
     .append("circle")
-    .attr("r", function(d) {return 2 * Math.sqrt(d.converts)})
+    // .attr("r", function(d) {return 2 * Math.sqrt(d.converts)})
+    .attr("r", 3)
     .attr("class","mission")
     .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
   });
