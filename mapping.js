@@ -18,7 +18,7 @@ d3.json("state_1870.json", function(error, state_1870) {
   svg.selectAll(".states")
     .data(topojson.feature(state_1870, state_1870.objects.states).features)
     .enter().append("path")
-    .attr("class", function(d) { return "subunit " + d.id; })
+    .attr("class", function(d) { return "state " + d.id; })
     .attr("d", path);
 
 });
