@@ -1,16 +1,3 @@
-// Setup the slider to select the year
-$("#year-selector").slider({
-  min: 1851,
-  max: 1907,
-  step: 1,
-  slide: function ( event, ui ) {
-    $("#current-year").text(ui.value);
-  }
-});
-
-// Set the initial value of the current year
-$( "#current-year" ).text($( "#year-selector" ).slider("value"));
-
 var width = window.innerWidth - 100;
 var height = window.innerHeight - 100;
 
@@ -48,10 +35,29 @@ d3.json("state_1870.json", function(error, state_1870) {
     .attr("class","mission")
     .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
 
-    svg.selectAll(".mission")
-    .data(missions)
-    .filter(function(d) {return d.state == "VA";})
-    .classed("hidden", true)
+
+    // Setup the slider to select the year
+    $("#year-selector").slider({
+      min: 1851,
+      max: 1907,
+      step: 1,
+      slide: function ( event, ui ) {
+        $("#current-year").text(ui.value);
+
+        svg.selectAll(".mission")
+        .data(missions)
+        .classed("hidden", true)
+        .filter(function(d) {
+          return +d.year === ui.value;
+        })
+        .classed("hidden", false);
+      }
+    });
+
+    // Set the initial value of the current year
+    $( "#current-year" ).text($( "#year-selector" ).slider("value"));
+
+
 
   });
 
