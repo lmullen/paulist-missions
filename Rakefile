@@ -11,4 +11,6 @@ task :shapefiles do
   sh "rm geo.json"
 end
 
-
+task :server do
+  sh "ruby -run -e httpd . -p 4000"
+end 
