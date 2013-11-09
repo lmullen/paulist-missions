@@ -58,7 +58,7 @@ d3.json("state_1870.json", function(error, state_1870) {
 
     $("#all-checkbox").click( function() {
       if ($("#all-checkbox").prop('checked')) {
-        $("#current-year").text("All");
+        $("#current-year").text("1851-1907");
         svg.selectAll(".mission")
         .data(missions)
         .classed("hidden", false);
