@@ -1,3 +1,16 @@
+// Setup the slider to select the year
+$("#year-selector").slider({
+  min: 1851,
+  max: 1907,
+  step: 1,
+  slide: function ( event, ui ) {
+    $("#current-year").text(ui.value);
+  }
+});
+
+// Set the initial value of the current year
+$( "#current-year" ).text($( "#year-selector" ).slider("value"));
+
 var width = window.innerWidth - 100;
 var height = window.innerHeight - 100;
 

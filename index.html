@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <style>
 
-/* CSS goes here. */
+#year-selector {
+  margin-left:200px;
+  width: 500px;
+}
 
 .state {
   fill: #eee;
@@ -40,10 +43,12 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
 </head>
 <body>
 <h3>Paulist Missions, 1851&ndash;1907</h3>
+<div id="year-selector"></div><div id="current-year">XXXX</div>
 <script src="mapping.js"></script>
 
 <p>Map made by <a href="http://lincolnmullen.com">Lincoln Mullen</a> in <a 
