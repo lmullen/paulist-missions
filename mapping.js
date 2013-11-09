@@ -43,12 +43,33 @@ d3.json("state_1870.json", function(error, state_1870) {
       step: 1,
       slide: function ( event, ui ) {
         $("#current-year").text(ui.value);
+        $("#all-checkbox").attr("checked", false);
 
         svg.selectAll(".mission")
         .data(missions)
         .classed("hidden", true)
         .filter(function(d) {
           return +d.year === ui.value;
+        })
+        .classed("hidden", false);
+
+      }
+    });
+
+    $("#all-checkbox").click( function() {
+      if ($("#all-checkbox").prop('checked')) {
+        $("#current-year").text("All");
+        svg.selectAll(".mission")
+        .data(missions)
+        .classed("hidden", false);
+      } else {
+        var current_year = $('#year-selector').slider("option", "value");
+        $("#current-year").text(current_year);
+        svg.selectAll(".mission")
+        .data(missions)
+        .classed("hidden", true)
+        .filter(function(d) {
+          return +d.year === current_year;
         })
         .classed("hidden", false);
       }
