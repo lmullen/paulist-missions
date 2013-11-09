@@ -47,6 +47,12 @@ d3.json("state_1870.json", function(error, state_1870) {
     .attr("r", 3)
     .attr("class","mission")
     .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
+
+    svg.selectAll(".mission")
+    .data(missions)
+    .filter(function(d) {return d.state == "VA";})
+    .classed("hidden", true)
+
   });
 
 });
