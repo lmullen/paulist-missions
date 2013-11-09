@@ -5,8 +5,9 @@
 <style>
 
 #year-selector {
-  margin-left:200px;
   width: 500px;
+  margin-left: 50px;
+  display:inline-block;
 }
 
 .state {
@@ -52,7 +53,10 @@
 </head>
 <body>
 <h3>Paulist Missions, 1851&ndash;1907</h3>
-<div id="year-selector"></div><div id="current-year"></div>
+<div id="year-indicator">Year displayed: <span id="current-year">All</span>
+<div id="year-selector"></div>
+</div>
+
 <script src="mapping.js"></script>
 
 <p>Map made by <a href="http://lincolnmullen.com">Lincoln Mullen</a> in <a 

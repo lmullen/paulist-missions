@@ -55,7 +55,7 @@ d3.json("state_1870.json", function(error, state_1870) {
     });
 
     // Set the initial value of the current year
-    $( "#current-year" ).text($( "#year-selector" ).slider("value"));
+    // $( "#current-year" ).text($( "#year-selector" ).slider("value"));
 
 
 
