@@ -4,26 +4,12 @@
 # Lincoln A. Mullen | lincoln@lincolnmullen.com | http://lincolnmullen.com
 # MIT License <http://lmullen.mit-license.org/>
 
-library(lubridate)
 library(ggplot2)
 library(ggthemes)
 library(maps)
 
 missions <- read.csv("demographics-religion/data/paulist-chronicles/paulist-missions.geocoded.csv", 
                      stringsAsFactors = FALSE)
-
-missions$year <- year(mdy(missions$start_date))
-
-# Give approximations of the values "several" and "many"; replace NA with 0
-missions$converts[missions$converts == "several"] <- 3
-missions$converts[missions$converts == "many"]    <- 7
-missions$converts <- as.integer(missions$converts)
-missions$converts[is.na(missions$converts)]       <- 0
-
-# Count converts and those left under instruction together
-missions$under_instruction <- as.integer(missions$under_instruction)
-missions$under_instruction[is.na(missions$under_instruction)]       <- 0
-missions$converts_total <- missions$converts + missions$under_instruction
 
 # Defaults for maps 
 my_theme <- theme_tufte() +
@@ -65,7 +51,7 @@ print(map_precw)
 dev.off()
 
 # Map after the Civil War
-missions_post <- subset(missions, year >= 1866 )
+missions_postcw <- subset(missions, year >= 1866 )
 
 map_postcw <- ggplot() +
   coord_map() +
@@ -93,4 +79,3 @@ pdf(file = "outputs/paulists/paulists-map-post-civil-war.pdf",
     height = 8.5, width= 11)
 print(map_postcw)
 dev.off()
-
