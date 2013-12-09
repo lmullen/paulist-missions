@@ -1,0 +1,3 @@
+[submodule "demographics-religion"]
+	path = demographics-religion
+	url = git@github.com:lmullen/demographics-religion.git
