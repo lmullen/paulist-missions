@@ -33,30 +33,64 @@ _gaq.push(['_trackPageview']);
 
 <body>
 
-<h3>Paulist Missions, 1851&ndash;1907</h3>
-<div id="year-indicator">
-  <input type="checkbox" id="all-checkbox" checked="true" />
-  <label for="all-checkbox">Display all years</label>
-  <div id="year-selector"></div>
-  <div id="year-label">Year displayed: <span 
-      id="current-year">1851-1907</span></div>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Paulist Missions, 1851&ndash;1907</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <hr/>
+    <div id="year-indicator">
+      <input type="checkbox" id="all-checkbox" checked="true" />
+      <label for="all-checkbox">Display all years</label>
+      <div id="year-selector"></div>
+      <label id="year-label">Year displayed: <span 
+          id="current-year">1851-1907</span></label>
+    </div>
+  </div>
 </div>
 
-<script src="mapping.js"></script>
+<div class="row">
+  <div class="small-12 columns" id="map">
+    <script src="mapping.js"></script>
+  </div>
+</div>
 
-<p>Map made by <a href="http://lincolnmullen.com">Lincoln Mullen</a> in <a 
-  href="http://d3js.org">D3.js</a> (<a 
-  href="https://github.com/lmullen/paulist-missions">code here</a>). Historic 
-state boundaries are from <a href="https://www.nhgis.org/">NHGIS</a>. The 
-Paulist missions are recorded in <em>Chronicle of the Missions Given by the 
-  Congregation of Missionary Priests of St. Paul the Apostle</em>, six 
-manuscript volumes, Office of Paulist History and Archives, <a 
-  href="http://www.paulist.org/location/location/north-american-paulist-center">North 
-  American Paulist Center</a>, Washington, DC.</p>
+<div class="row">
+  <div class="small-4 columns" id="chart-1">
+    <h5>Missions per year</h5>
+  </div>
+  <div class="small-4 columns" id="chart-2">
+    <h5>Confessions per year</h5>
+  </div>
+  <div class="small-4 columns" id="chart-3">
+    <h5>Converts per year</h5>
+  </div>
+</div>
 
-<p><em>N.B.</em> I'm still working on this map. For testing purposes I'm only 
-using about a third of the missions. Eventually the visualization will have 
-interactivity.</p>
+<div class="row" id="notes">
+  <div class="small-12 columns">
+
+    <hr/>
+
+    <p>Map made by <a href="http://lincolnmullen.com">Lincoln Mullen</a> in <a 
+      href="http://d3js.org">D3.js</a> (<a 
+      href="https://github.com/lmullen/paulist-missions">code here</a>). 
+    Historic state boundaries are from <a 
+      href="https://www.nhgis.org/">NHGIS</a>. The Paulist missions are recorded 
+    in <em>Chronicle of the Missions Given by the Congregation of Missionary 
+      Priests of St. Paul the Apostle</em>, six manuscript volumes, Office of 
+    Paulist History and Archives, <a 
+      href="http://www.paulist.org/location/location/north-american-paulist-center">North 
+      American Paulist Center</a>, Washington, DC.</p>
+
+    <p><em>N.B.</em> I'm still working on this map. For testing purposes I'm 
+    only using about a third of the missions. Eventually the visualization 
+    will have interactivity.</p>
+
+  </div>
+</div>
 
 </body>
 </html>
