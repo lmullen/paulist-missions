@@ -1,13 +1,15 @@
-var width = window.innerWidth - 100;
-var height = window.innerHeight - 100;
+var width = $("#map").width();
+var height = 500;
+console.log(width);
+console.log(height);
 
 var projection = d3.geo.albersUsa()
-.scale(1200)
+.scale(1000)
 .translate([width / 2, height / 2]);
 
 var path = d3.geo.path().projection(projection);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#map").append("svg")
 .attr("width", width)
 .attr("height", height);
 
