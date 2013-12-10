@@ -1,0 +1,33 @@
+#year-selector {
+  width: 500px;
+  margin-left: 50px;
+  display:inline-block;
+}
+
+#all-checkbox {
+  display:inline-block;
+}
+
+#year-label {
+  display:inline-block;
+  margin-left: 50px;
+}
+
+.state {
+  fill: #eee;
+}
+
+.border {
+  fill: none;
+  stroke: black;
+}
+
+.mission {
+  fill: red;
+  fill-opacity: 0.25;
+}
+
+.hidden {
+  display: none;
+}
+
