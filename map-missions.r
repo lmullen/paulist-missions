@@ -78,8 +78,8 @@ pdf(file = "paulists-map-2.pdf",
     height = 8.5, width= 11)
 print(map_2)
 dev.off()
-system("pdftk paulists-map-2.pdf cat 1west
-       output paulists-map-2.pdf")
+system("pdftk paulists-map-2.pdf cat 1west output paulists-map2.pdf")
+system("mv paulists-map2.pdf paulists-map-2.pdf")
 
 # Map 3
 map_3 <- base_map +
@@ -96,5 +96,6 @@ pdf(file = "paulists-map-3.pdf",
     height = 8.5, width= 11)
 print(map_3)
 dev.off()
-system("pdftk paulists-map-3.pdf cat 1west output paulists-map-3.pdf")
+system("pdftk paulists-map-3.pdf cat 1west output paulists-map3.pdf")
+system("mv paulists-map3.pdf paulists-map-3.pdf")
 
