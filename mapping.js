@@ -32,10 +32,11 @@ var chart_3_svg = d3.select("#chart-3")
 
 queue()
 .defer(d3.json, "state_1870.json")
-.defer(d3.csv, "missions.csv")
+.defer(d3.csv, "demographics-religion/data/paulist-chronicles/paulist-missions.aggregated.csv")
+.defer(d3.csv, "demographics-religion/data/paulist-chronicles/paulist-summary.csv")
 .await(ready);
 
-function ready(error, state_1870, missions) {
+function ready(error, state_1870, missions, aggregated) {
   map_svg.selectAll(".states")
   .data(topojson.feature(state_1870, state_1870.objects.states).features)
   .enter().append("path")
@@ -54,7 +55,7 @@ function ready(error, state_1870, missions) {
   // .attr("r", function(d) {return 2 * Math.sqrt(d.converts)})
   .attr("r", 3)
   .attr("class","mission")
-  .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
+  .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
 
   // Setup the slider to select the year
   $("#year-selector").slider({
