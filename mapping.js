@@ -15,17 +15,17 @@ var map_svg = d3.select("#map")
 .attr("width", map_width)
 .attr("height", map_height);
 
-var chart_1_svg = d3.select("#chart-1")
+var chart_1 = d3.select("#chart-1")
 .append("svg")
 .attr("width", chart_width)
 .attr("height", chart_height);
 
-var chart_2_svg = d3.select("#chart-2")
+var chart_2 = d3.select("#chart-2")
 .append("svg")
 .attr("width", chart_width)
 .attr("height", chart_height);
 
-var chart_3_svg = d3.select("#chart-3")
+var chart_3 = d3.select("#chart-3")
 .append("svg")
 .attr("width", chart_width)
 .attr("height", chart_height);
@@ -36,7 +36,7 @@ queue()
 .defer(d3.csv, "demographics-religion/data/paulist-chronicles/paulist-summary.csv")
 .await(ready);
 
-function ready(error, state_1870, missions, aggregated) {
+function ready(error, state_1870, missions, summary) {
   map_svg.selectAll(".states")
   .data(topojson.feature(state_1870, state_1870.objects.states).features)
   .enter().append("path")
@@ -56,6 +56,29 @@ function ready(error, state_1870, missions, aggregated) {
   .attr("r", 3)
   .attr("class","mission")
   .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
+
+  // Scales for charts
+  var scale_1 = d3.scale.linear()
+  .domain([0, d3.max(summary, function(d) {return +d.missions_total})])
+  .range([0, chart_height]);
+
+  var scale_2 = d3.scale.linear()
+  .domain([0, d3.max(summary, function(d) {return +d.confessions})])
+  .range([0, chart_height]);
+
+  var scale_3 = d3.scale.linear()
+  .domain([0, d3.max(summary, function(d) {return +d.converts})])
+  .range([0, chart_height]);
+
+  // Draw the charts
+  chart_1.selectAll("rect")
+  .data(summary)
+  .enter()
+  .append("rect")
+  .attr("x", 0)
+  .attr("y", 0)
+  .attr("width", 20)
+  .attr("height", 100)
 
   // Setup the slider to select the year
   $("#year-selector").slider({
