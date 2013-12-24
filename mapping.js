@@ -70,15 +70,35 @@ function ready(error, state_1870, missions, summary) {
   .domain([0, d3.max(summary, function(d) {return +d.converts})])
   .range([0, chart_height]);
 
+  var bar_width = chart_width / summary.length;
+
   // Draw the charts
   chart_1.selectAll("rect")
   .data(summary)
   .enter()
   .append("rect")
-  .attr("x", 0)
-  .attr("y", 0)
-  .attr("width", 20)
-  .attr("height", 100)
+  .attr("x", function(d, i) { return i * bar_width; })
+  .attr("y", function(d, i) { return chart_height - scale_1(+d.missions_total); })
+  .attr("width", bar_width)
+  .attr("height", function(d, i) { return scale_1(+d.missions_total); })
+
+  chart_2.selectAll("rect")
+  .data(summary)
+  .enter()
+  .append("rect")
+  .attr("x", function(d, i) { return i * bar_width; })
+  .attr("y", function(d, i) { return chart_height - scale_2(+d.confessions); })
+  .attr("width", bar_width)
+  .attr("height", function(d, i) { return scale_2(+d.confessions); })
+
+  chart_3.selectAll("rect")
+  .data(summary)
+  .enter()
+  .append("rect")
+  .attr("x", function(d, i) { return i * bar_width; })
+  .attr("y", function(d, i) { return chart_height - scale_3(+d.converts); })
+  .attr("width", bar_width)
+  .attr("height", function(d, i) { return scale_3(+d.converts); })
 
   // Setup the slider to select the year
   $("#year-selector").slider({
