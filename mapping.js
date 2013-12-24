@@ -117,6 +117,30 @@ function ready(error, state_1870, missions, summary) {
       })
       .classed("hidden", false);
 
+      chart_1.selectAll("rect")
+      .data(summary)
+      .classed("active", false)
+      .filter(function(d) {
+        return +d.year_start === ui.value;
+      })
+      .classed("active", true);
+
+      chart_2.selectAll("rect")
+      .data(summary)
+      .classed("active", false)
+      .filter(function(d) {
+        return +d.year_start === ui.value;
+      })
+      .classed("active", true);
+
+      chart_3.selectAll("rect")
+      .data(summary)
+      .classed("active", false)
+      .filter(function(d) {
+        return +d.year_start === ui.value;
+      })
+      .classed("active", true);
+
     }
   });
 
@@ -126,6 +150,16 @@ function ready(error, state_1870, missions, summary) {
       map_svg.selectAll(".mission")
       .data(missions)
       .classed("hidden", false);
+
+      chart_1.selectAll("rect")
+      .classed("active", false);
+
+      chart_2.selectAll("rect")
+      .classed("active", false);
+
+      chart_3.selectAll("rect")
+      .classed("active", false);
+
     } else {
       var current_year = $('#year-selector').slider("option", "value");
       $("#current-year").text(current_year);

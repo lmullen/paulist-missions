@@ -31,3 +31,11 @@
   display: none;
 }
 
+rect {
+  fill: gray;
+}
+
+.active {
+  fill: red;
+}
+
