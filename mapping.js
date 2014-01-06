@@ -134,7 +134,7 @@ function ready(error, state_1870, missions, summary) {
   // Setup the slider to select the year
   $("#year-selector").slider({
     min: 1851,
-    max: 1907,
+    max: 1906,
     step: 1,
     slide: function ( event, ui ) {
       $("#current-year").text(ui.value);
