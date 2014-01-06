@@ -39,3 +39,17 @@ rect {
   fill: red;
 }
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+.x.axis path {
+  display: none;
+}
