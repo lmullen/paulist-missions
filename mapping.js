@@ -1,11 +1,11 @@
 var map_width = $("#map").width();
-var map_height = 450;
+var map_height = 425;
 var chart_margin = {top: 10, right: 50, bottom: 10, left: 0};
 var chart_width = $("#chart-1").width() - chart_margin.left - chart_margin.right;
 var chart_height = 180 - chart_margin.top - chart_margin.bottom;
 
 var projection = d3.geo.albersUsa()
-.scale(800)
+.scale(850)
 .translate([map_width / 2, map_height / 2]);
 
 var path = d3.geo.path().projection(projection);
