@@ -13,5 +13,24 @@ end
 
 desc "Run the development server"
 task :server do
-  sh "ruby -run -e httpd . -p 4000"
+  sh "ruby -run -e httpd . -p 5000"
 end 
+
+desc "Push the project to lincolnmullen.com"
+task :push do
+
+  ssh_port       = "22"
+  ssh_user       = "reclaim"
+  rsync_delete   = true
+  rsync_options  = "--progress --stats -avze"
+  public_dir     = "." 
+  document_root  = "~/public_html/lincolnmullen.com/projects/paulists-map"
+  
+  exclude = ""
+  if File.exists?('./rsync-exclude')
+    exclude = "--exclude-from '#{File.expand_path('./rsync-exclude')}'"
+  end
+
+  system("rsync #{rsync_options} 'ssh -p #{ssh_port}' #{exclude} #{"--delete" unless rsync_delete == false} #{public_dir}/ #{ssh_user}:#{document_root}")
+
+end

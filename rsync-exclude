@@ -1,0 +1,7 @@
+r/
+.*
+LICENSE
+README.md
+Rakefile
+rsync-exclude
+Session.vim
